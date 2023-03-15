@@ -5,13 +5,15 @@ const colors = require("colors")
 const dbConnect = require("./utilits/dbConnect");
 const sendEmail = require('./utilits/email');
 const router = require('./routes/v1/tools.route');
+const viewCount = require("./middleware/viewCount");
 
-console.log(dbConnect);
 
 
 
 // sendEmail(); // available for use when need.
 
+//  middleware check
+app.use(viewCount)
 
 dbConnect();
 
