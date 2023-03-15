@@ -1,5 +1,4 @@
 const express = require("express");
-const { getDeleteTools, postDeleteTools } = require("../../controller/deleteController");
 const toolsControler = require("../../controller/tools.controller");
 
 const router = express.Router();
@@ -14,8 +13,6 @@ const router = express.Router();
 // })
 
 
-router.route("/").get(getDeleteTools)
-.post(postDeleteTools);
 
 
 

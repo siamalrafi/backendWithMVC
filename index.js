@@ -17,7 +17,6 @@ dbConnect();
 
 
 app.use("/api/v1/tools", router)
-app.use("/api/v2/tools", router)
 
 
 
