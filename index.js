@@ -8,6 +8,7 @@ const router = require('./routes/v1/tools.route');
 const viewCount = require("./middleware/viewCount");
 const cors = require('cors');
 const { rateLimit } = require('express-rate-limit');
+const exp = require('constants');
 
 
 
@@ -18,7 +19,7 @@ const { rateLimit } = require('express-rate-limit');
 
 app.use(cors());
 app.use(express.json());
-
+app.use(express.static("public"))
 
 // app.use(viewCount)
 
@@ -32,7 +33,7 @@ app.use("/api/v1/tools", router)
 
 
 app.get('/', (req, res) => {
-    res.send('Server is connected!'.green)
+    res.sendFile(__dirname + "/public/index.html");
 })
 
 
