@@ -9,6 +9,7 @@ const viewCount = require("./middleware/viewCount");
 const cors = require('cors');
 const { rateLimit } = require('express-rate-limit');
 const exp = require('constants');
+const ejs = require('ejs');
 
 
 
@@ -19,7 +20,9 @@ const exp = require('constants');
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"))
+app.use(express.static("public"));
+
+app.set('view engine', 'ejs')
 
 // app.use(viewCount)
 
@@ -33,7 +36,11 @@ app.use("/api/v1/tools", router)
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/public/index.html");
+    // res.sendFile(__dirname + "/public/index.html");
+
+    res.render('pages/index', {
+        id: 5
+    })
 })
 
 
