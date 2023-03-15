@@ -3,11 +3,16 @@ module.exports.getAllTools = (req, res, next) => {
     // console.log(ip, query, params, body, headers);
 
 
-     res.redirect("/login")
-    
+    res.redirect("/login")
+
 
 }
 
 module.exports.saveATools = (req, res) => {
     res.send("saveATools")
+}
+
+
+module.exports.getToolsDetails = (req, res, next) => {
+    res.send("getToolsDetails")
 }
