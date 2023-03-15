@@ -1,4 +1,6 @@
 const express = require("express");
+const { getDeleteTools, postDeleteTools } = require("../../controller/deleteController");
+const toolsControler = require("../../controller/tools.controller");
 
 const router = express.Router();
 
@@ -12,49 +14,49 @@ const router = express.Router();
 // })
 
 
+router.route("/").get(getDeleteTools)
+.post(postDeleteTools);
 
 
 
 router.route("/")
-    /**
-      * @api {get} /tools All tools
-      * @apiDescription Get all the tools
-      * @apiPermission admin
-      *
-      * @apiHeader {String} Authorization   User's access token
-      *
-      * @apiParam  {Number{1-}}         [page=1]     List page
-      * @apiParam  {Number{1-100}}      [limit=10]  Users per page
-      *
-      * @apiSuccess {Object[]} all the tools.
-      *
-      * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
-      * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
-      */
-    .get((req, res) => {
-        res.send("get router connected")
-    })
+  /**
+    * @api {get} /tools All tools
+    * @apiDescription Get all the tools
+    * @apiPermission admin
+    *
+    * @apiHeader {String} Authorization   User's access token
+    *
+    * @apiParam  {Number{1-}}         [page=1]     List page
+    * @apiParam  {Number{1-100}}      [limit=10]  Users per page
+    *
+    * @apiSuccess {Object[]} all the tools.
+    *
+    * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+    * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+    */
+  .get(
+    toolsControler.getAllTools
+  )
 
 
 
-    /**
-  * @api {get} /tools save all
-  * @apiDescription Get all the tools
-  * @apiPermission admin
-  *
-  * @apiHeader {String} Authorization   User's access token
-  *
-  * @apiParam  {Number{1-}}         [page=1]     List page
-  * @apiParam  {Number{1-100}}      [limit=10]  Users per page
-  *
-  * @apiSuccess {Object[]} all the tools.
-  *
-  * @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
-  * @apiError (Forbidden 403)     Forbidden     Only admins can access the data
-  */
-    .post((req, res) => {
-        res.send("post router connected")
-    })
+  /**
+* @api {get} /tools save all
+* @apiDescription Get all the tools
+* @apiPermission admin
+*
+* @apiHeader {String} Authorization   User's access token
+*
+* @apiParam  {Number{1-}}         [page=1]     List page
+* @apiParam  {Number{1-100}}      [limit=10]  Users per page
+*
+* @apiSuccess {Object[]} all the tools.
+*
+* @apiError (Unauthorized 401)  Unauthorized  Only authenticated users can access the data
+* @apiError (Forbidden 403)     Forbidden     Only admins can access the data
+*/
+  .post(toolsControler.saveATools)
 
 
 
