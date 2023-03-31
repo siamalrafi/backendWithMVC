@@ -46,9 +46,9 @@ app.listen(port, () => {
 })
 
 
-process.on("unhandledRejection",(error)=>{
-    console.log(error.name,error.massage);
-    app.close(()=>{
+process.on("unhandledRejection", (error) => {
+    console.log(error.name, error.massage);
+    app.close(() => {
         process.exit(1);
     })
 })
